@@ -1,0 +1,39 @@
+.centered{
+  text-align: center;
+  margin: 15% 2%;
+  padding: 0 2em 2em 2em;
+}
+
+@media(min-width:760px){
+  .centered{
+    margin: 10% 20%;
+  }
+}
+
+html{
+  background-color: steelblue;
+}
+
+.box{
+  border: .1em solid black;
+  border-radius: 1.5em;
+  background-color: salmon;
+  color: white;
+  text-shadow: 1px 1px black;
+  font-size: .8em;
+}
+
+
+#get-random-quote{
+    /*background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;*/
+
+}
