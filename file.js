@@ -1,48 +1,30 @@
-//Twitter Widgets Import------------------
+<!DOCTYPE html>
+<html>
 
-window.twttr = (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {};
-    if (d.getElementById(id)) return t;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://platform.twitter.com/widgets.js";
-    fjs.parentNode.insertBefore(js, fjs);
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+    <script src="https://use.fontawesome.com/8765228a8d.js"></script>
+    <title>Random Quote Generator</title>
+</head>
 
-    t._e = [];
-    t.ready = function(f) {
-        t._e.push(f);
-    };
+<body>
+  <div class="centered box">
+    <h1 id="goes-here">Hello there!</h1>
+    <button id="get-random-quote">Get a new quote</button><br><br>
+    <!-- <a class="twitter-share-button"
+    href=""
+    data-size="large"> -->
+    <a class="twitter-share-button"
+      target="_blank"
+      href=""
+      data-size="large">
+      <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+    </a>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="file.js" charset="utf-8"></script>
+</body>
 
-    return t;
-}(document, "script", "twitter-wjs"));
-
-
-//Button Logic--------------------
-
-var quoteText;
-var quoteAuthor;
-
-function updateTwitterValues(share_url, title) {
-    // clear out the <a> tag that's currently there...probably don't really need this since you're replacing whatever is in there already.
-    $("#twitter").html('&nbsp;');
-    $("#twitter").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="' + share_url + '" data-size="large" data-text="' + title + '" data-count="none">Tweet</a>');
-    twttr.widgets.load(document.getElementById("twitter"));
-}
-
-$(document).ready(function() {
-    $("#get-random-quote").click(function() {
-        var random = Math.floor(Math.random() * 30);
-        $.getJSON("https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=40&callback=", function(a) {
-            quoteText = a[random].content;
-            quoteAuthor = a[random].title;
-            $("#goes-here").html(quoteText + "<p>— " + quoteAuthor + "</p>");
-            updateTwitterValues(twitterUrl);
-        })
-    })
-});
-
-
-// var twitterUrl = "https://twitter.com/intent/tweet?text=Hello%20world";
-// var tweetText = "\"" + quoteText + "\"" + " - " + quoteAuthor;
-// twitterUrl += tweetText;
+</html>
